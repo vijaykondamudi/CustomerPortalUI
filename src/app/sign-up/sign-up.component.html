@@ -1,0 +1,41 @@
+<form #signupform="ngForm" (ngSubmit)="createProfile(signupform)">
+    <div>
+        <label *ngIf="genericMessage.message" [ngStyle]="genericMessage.errorcode !== 404 && {'color':'green'} || {'color': 'red'}">{{genericMessage.message}}</label>
+    </div>
+    <div>
+        <label>Firstname :</label>
+        <input type="text" [(ngModel)]="user.firstname" name="firstname" 
+               placeholder="Firstname" 
+               #fname="ngModel"/><br>
+    </div>
+
+    <div>
+        <label>Lastname :</label>
+        <input type="text" [(ngModel)]="user.lastname" name="lastname" 
+               placeholder="Lastname"
+               #lname="ngModel"/><br>
+    </div>
+
+    <div>
+        <label>Username :</label>
+        <input type="text" [(ngModel)]="user.username" name="username" 
+               placeholder="Username" 
+               #uname="ngModel" required/><br>
+        <span *ngIf="uname.touched && uname.hasError('required')">Username is required</span>
+    </div>
+    <div>
+        <label>Password :</label>
+        <input type="password" [(ngModel)]="user.password" name="password" 
+               placeholder="Password" 
+               #pass="ngModel" required/><br>
+        <span *ngIf="pass.touched && pass.hasError('required')">Password is required</span>
+    </div>
+    <div>
+        <label>Email :</label>
+        <input type="text" [(ngModel)]="user.email" name="email" 
+               placeholder="Email" 
+               #useremail="ngModel" required/><br>
+        <span *ngIf="useremail.touched && useremail.hasError('required')">Email is required</span>
+    </div>
+    <input type="submit" value="Create Profile" [disabled]="signupform.invalid"/>
+</form>
