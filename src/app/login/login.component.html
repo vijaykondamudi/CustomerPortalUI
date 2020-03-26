@@ -1,20 +1,22 @@
-<form #loginform="ngForm" (ngSubmit)="validateUser(loginform)">
-    <div>
-        <label *ngIf="genericMessage">Invalid Username and Password</label>
-    </div>
-    <div>
-        <label>Email:</label>
-        <input type="text" name="email" placeholder="Email"
-               [(ngModel)]="login.email"
-               #useremail="ngModel" required/><br>
-        <p *ngIf="useremail.dirty && useremail.hasError('required')">Please enter username</p>
-    </div>
-    <div>
-        <label>Password:</label>
-        <input type="password" name="password" placeholder="Password"
-               [(ngModel)]="login.password"
-               #userpassword="ngModel" required/><br>
-        <p *ngIf="userpassword.dirty && userpassword.hasError('required')">Please enter password</p>
-    </div>
-    <input type="submit" value="Sign In"/>
-</form>
+<div class="container-fluid">
+	<form #loginform="ngForm" (ngSubmit)="validateUser(loginform)">
+	    <div>
+	        <label *ngIf="genericMessage">Invalid Username and Password</label>
+	    </div>
+	    <div>
+	        <label>Email:</label>
+	        <input type="text" name="email" placeholder="Email"
+	               [(ngModel)]="login.email"
+	               #useremail="ngModel" required/><br>
+	        <p *ngIf="useremail.dirty && useremail.hasError('required')">Please enter username</p>
+	    </div>
+	    <div>
+	        <label>Password:</label>
+	        <input type="password" name="password" placeholder="Password"
+	               [(ngModel)]="login.password"
+	               #userpassword="ngModel" required/><br>
+	        <p *ngIf="userpassword.dirty && userpassword.hasError('required')">Please enter password</p>
+	    </div>
+	    <input type="submit" value="Sign In"/>
+	</form>
+</div>

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Singup } from "src/app/sign-up/signupModel";
+import { GetUsers } from "src/app/sign-up/signupModel";
 import { HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators'; 
 import { Observable } from 'rxjs';
@@ -30,5 +31,11 @@ export class CustomerPortalService {
     return this.httpClient.post('api/login', JSON.stringify(signup), this.options).pipe(map(data => {
       return <Singup>data;
     }))
+  }
+  
+  getAllUser() : Observable<GetUsers[]>{
+	  return this.httpClient.get('api/getAllUsers').pipe(map(data => {
+		  return <GetUsers[]>data;
+	  }))
   }
 }

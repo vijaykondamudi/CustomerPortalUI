@@ -1,41 +1,60 @@
-<form #signupform="ngForm" (ngSubmit)="createProfile(signupform)">
-    <div>
-        <label *ngIf="genericMessage.message" [ngStyle]="genericMessage.errorcode !== 404 && {'color':'green'} || {'color': 'red'}">{{genericMessage.message}}</label>
+<div class="container">
+	<form #signupform="ngForm" (ngSubmit)="createProfile(signupform)">
+	 <div>
+        <label *ngIf="genericMessage && genericMessage.message" [ngStyle]="genericMessage.errorcode !== 404 && {'color':'green'} || {'color': 'red'}">{{genericMessage.message}}</label>
     </div>
-    <div>
-        <label>Firstname :</label>
-        <input type="text" [(ngModel)]="user.firstname" name="firstname" 
-               placeholder="Firstname" 
-               #fname="ngModel"/><br>
-    </div>
+	  <div class="form-group row col-md-5 mb-3">
+	    <label for="firstName" class="col-form-label">Firstname :</label>
+	    <div class="col-sm-9">
+	    	<input type="input" class="form-control"
+	                        id="firstName" 
+	                        aria-describedby="firstName"  
+	                        [(ngModel)]="user.firstName" name="firstname" 
+	                        placeholder="Firstname" 
+	                        #fname="ngModel"/>
+	    </div>
+	    
+	  </div>
+	  <div class="form-group row col-md-5 mb-3">
+	    <label for="lastName" class="col-form-label">Lastname :</label>
+	    <div class="col-sm-9">
+	    <input type="text" class="form-control" id="lastName" 
+	                       [(ngModel)]="user.lastName" name="lastname" 
+	                       placeholder="Lastname"
+	                       #lname="ngModel"/>
+	     </div>
+	  </div>
+	  <div class="form-group row col-md-5 mb-3">
+	    <label for="userName" class="col-form-label">Username :</label>
+	    <div class="col-sm-9">
+		    <input type="text" class="form-control" id="userName" 
+		                       [(ngModel)]="user.username" name="username" 
+		                       placeholder="UserName"
+		                       #uname="ngModel" required/>
+	    </div>
+	    <span *ngIf="uname.touched && uname.hasError('required')">Username is required</span>
+	  </div>
+	  <div class="form-group row col-md-5 mb-3">
+	    <label for="userPassword" class="col-form-label">Password :</label>
+	    <div class="col-sm-9">
+	    <input type="password" class="form-control" id="password" 
+	                       [(ngModel)]="user.password" name="password" 
+	                       placeholder="Password"
+	                       #pass="ngModel" required/>
+	     </div>
+	     <span *ngIf="pass.touched && pass.hasError('required')">Password is required</span>
+	  </div>
+	  <div class="form-group row col-md-5 mb-3">
+	    <label for="userEmail" class="col-form-label">Email :</label>
+	    <div class="col-sm-9">
+	    <input type="email" class="form-control" id="email" 
+	                       [(ngModel)]="user.email" name="email" 
+	                       placeholder="Email Address"
+	                       #email="ngModel" required/>
+	     </div>
+	     <span *ngIf="email.touched && email.hasError('required')">Email is required</span>
+	  </div>
+	  <button class="col-md-3 mb-3" type="submit" class="btn btn-primary" [disabled]="!signupform.touched || signupform.invalid">Create Profile</button>
+	</form>
+</div>
 
-    <div>
-        <label>Lastname :</label>
-        <input type="text" [(ngModel)]="user.lastname" name="lastname" 
-               placeholder="Lastname"
-               #lname="ngModel"/><br>
-    </div>
-
-    <div>
-        <label>Username :</label>
-        <input type="text" [(ngModel)]="user.username" name="username" 
-               placeholder="Username" 
-               #uname="ngModel" required/><br>
-        <span *ngIf="uname.touched && uname.hasError('required')">Username is required</span>
-    </div>
-    <div>
-        <label>Password :</label>
-        <input type="password" [(ngModel)]="user.password" name="password" 
-               placeholder="Password" 
-               #pass="ngModel" required/><br>
-        <span *ngIf="pass.touched && pass.hasError('required')">Password is required</span>
-    </div>
-    <div>
-        <label>Email :</label>
-        <input type="text" [(ngModel)]="user.email" name="email" 
-               placeholder="Email" 
-               #useremail="ngModel" required/><br>
-        <span *ngIf="useremail.touched && useremail.hasError('required')">Email is required</span>
-    </div>
-    <input type="submit" value="Create Profile" [disabled]="signupform.invalid"/>
-</form>

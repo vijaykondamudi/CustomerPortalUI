@@ -1,1 +1,18 @@
-<p>home works!</p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">FirstName</th>
+      <th scope="col">LastName</th>
+      <th scope="col">Email</th>
+      <th scope="col">UserName</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let userInfo of allData">
+      <th>{{userInfo.firstName}}</th>
+      <td>{{userInfo.lastName}}</td>
+      <td>{{userInfo.email}}</td>
+      <td>{{userInfo.username}}</td>
+    </tr>
+  </tbody>
+</table>

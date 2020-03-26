@@ -5,3 +5,10 @@ export class Singup {
     lastName  : string;
     email : string;
 }
+
+export class GetUsers {
+    username : string;
+    firstName : string;
+    lastName  : string;
+    email : string;
+}
