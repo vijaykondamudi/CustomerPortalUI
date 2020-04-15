@@ -32,8 +32,8 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
-            "node_modules/jquery/dist/jquery.min.js",
-            "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           },
           "configurations": {
@@ -125,6 +125,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "CustomerPortalUI"
+    }
+  },
+  "defaultProject": "CustomerPortalUI",
+  "cli": {
+    "analytics": "eec223a9-c7f8-4c8e-9ff2-ce7d42883710"
+  }
 }
